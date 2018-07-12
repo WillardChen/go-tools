@@ -25,7 +25,7 @@ var chs chan int
 // Work 进程并发处理
 func (p *Pool) Work(wg *sync.WaitGroup) {
 
-	chs = make(chan int, 10)
+	chs = make(chan int, p.Routines)
 	WorkloadLock := new(WorkloadLock)
 
 	for i := 1; i <= p.Routines; i++ {
